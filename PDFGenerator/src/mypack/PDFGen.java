@@ -28,8 +28,8 @@ class PDFGen {
 		JMenuBar bar = new JMenuBar();
 		JMenu file = new JMenu("File");
 		
-		JMenuItem f1 = new JMenuItem("New PDF");
-		JMenuItem f2 = new JMenuItem("Open Recent PDF");
+		JMenuItem f1 = new JMenuItem("New File");
+		JMenuItem f2 = new JMenuItem("Open Recent File");
 		
 		file.add(f1);
 		file.add(f2);
