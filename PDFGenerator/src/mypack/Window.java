@@ -2,6 +2,7 @@ package mypack;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 import javax.swing.*;
 
@@ -25,7 +26,7 @@ public class Window implements ActionListener {
 		
 		newfile = new JMenuItem("New File");
 		newfile.addActionListener(this);
-		file.add(frame);
+		file.add(newfile);
 		
 		bar.add(file);
 		frame.setJMenuBar(bar);
@@ -40,11 +41,21 @@ public class Window implements ActionListener {
 		frame.setVisible(true);
 		
 		// Create font size dropdown menu
-		fontSizes = new JComboBox<Integer>();
+		JPanel fontSizeBox = new JPanel(new FlowLayout());
 		
-		for(int i = 4; i < 96; i += 2) {
+		JLabel fontSizeName = new JLabel("Font Size");
+		fontSizes = new JComboBox<Integer>();
+		fontSizes.setEditable(true);
+		fontSizes.addActionListener(this);
+		
+		for(int i = 2; i <= 96; i += 2) {
 			fontSizes.addItem(i);
 		}
+		
+		fontSizeBox.add(fontSizeName);
+		fontSizeBox.add(fontSizes);
+		
+		frame.add(fontSizeBox);
 		
 		
 	}
@@ -63,10 +74,22 @@ public class Window implements ActionListener {
 				showOptions();
 			}
 		}
+		
+		else if(e.getSource() == fontSizes) {
+			Object val = fontSizes.getSelectedItem();
+			
+			if(!(val instanceof Integer)) {
+				fontSizes.setSelectedItem(4);
+			}
+		}
 	}
 	
 	public void showOptions() {
+		// Remove no file selected message
+		noselect.setVisible(false);
 		
+		// Add customization options
+		frame.setVisible(true);
 	}
 
 }
