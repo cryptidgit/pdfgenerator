@@ -3,11 +3,7 @@ package mypack;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.*;
 
 public class Window implements ActionListener {
 	JMenuItem newfile;
@@ -46,8 +42,10 @@ public class Window implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		if(e.getSource() == newfile) {
+			JFileChooser filechoose = new JFileChooser();
+			filechoose.showOpenDialog(null);
+		}
 	}
 
 }
