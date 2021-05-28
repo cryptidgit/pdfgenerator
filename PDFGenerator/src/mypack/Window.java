@@ -10,7 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class Window implements ActionListener {
-	JMenuItem f1;
+	JMenuItem newfile;
 	
 	Window(String title, int width, int length) {
 		JFrame nofile = new JFrame(title); // Default screen on opening
@@ -26,9 +26,9 @@ public class Window implements ActionListener {
 		JMenuBar bar = new JMenuBar();
 		JMenu file = new JMenu("File");
 		
-		JMenuItem f1 = new JMenuItem("New File");
-		f1.addActionListener(this);
-		file.add(f1);
+		newfile = new JMenuItem("New File");
+		newfile.addActionListener(this);
+		file.add(newfile);
 		
 		bar.add(file);
 		frame.setJMenuBar(bar);
