@@ -6,8 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Window implements ActionListener {
+	JMenuBar bar;
+	JMenu file;
 	JMenuItem newfile;
 	JFrame nofile, frame;
+	JLabel noselect;
 	
 	Window(String title, int width, int length) {
 		nofile = new JFrame(title); // Default screen on opening
@@ -20,25 +23,32 @@ public class Window implements ActionListener {
 		nofile.setSize(width, length);
 		
 		// Create menu bar and items
-		JMenuBar bar = new JMenuBar();
-		JMenu file = new JMenu("File");
+		bar = new JMenuBar();
+		file = new JMenu("File");
 		
 		newfile = new JMenuItem("New File");
 		newfile.addActionListener(this);
 		file.add(newfile);
 		
 		bar.add(file);
-		frame.setJMenuBar(bar);
+		//frame.setJMenuBar(f1);
 		nofile.setJMenuBar(bar);
 		
 		// Create "No File Selected" text
-		JLabel noselect = new JLabel("No File Selected");
+		noselect = new JLabel("No File Selected");
 		noselect.setHorizontalAlignment(JLabel.CENTER);
 		
 		nofile.add(noselect);
 		
 		// Make changes visible
 		nofile.setVisible(true);
+		
+		// Create font size dropdown menu
+		JComboBox<Integer> fontSizes = new JComboBox<Integer>();
+		
+		for(int i = 4; i < 96; i += 2) {
+			fontSizes.addItem(i);
+		}
 	}
 	
 	@Override
@@ -52,10 +62,13 @@ public class Window implements ActionListener {
 			if(!filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
 				JOptionPane.showMessageDialog(frame, "File must end in .txt", "Error", JOptionPane.ERROR_MESSAGE);
 			} else if(filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
-				nofile.setVisible(false);
-				frame.setVisible(true);
+				showOptions();
 			}
 		}
+	}
+	
+	public void showOptions() {
+		
 	}
 
 }
