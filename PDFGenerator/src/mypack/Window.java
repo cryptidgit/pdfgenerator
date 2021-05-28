@@ -77,6 +77,14 @@ public class Window implements ActionListener {
 			
 			if(!(val instanceof Integer)) {
 				fontSizes.setSelectedItem(4);
+			} else {
+				int i = (Integer) val;
+				
+				if(i < 1) {
+					fontSizes.setSelectedItem(1);
+				} else if(i > 400) {
+					fontSizes.setSelectedItem(400);
+				}
 			}
 		}
 	}
