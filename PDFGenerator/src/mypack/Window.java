@@ -54,11 +54,7 @@ public class Window implements ActionListener {
 		}
 		
 		fontSizeBox.add(fontSizeName);
-		fontSizeBox.add(fontSizes);
-		
-		frame.add(fontSizeBox);
-		
-		
+		fontSizeBox.add(fontSizes);		
 	}
 	
 	@Override
@@ -88,6 +84,8 @@ public class Window implements ActionListener {
 	public void showOptions() {
 		// Remove no file selected message
 		noselect.setVisible(false);
+		
+		frame.add(fontSizeBox);
 		
 		// Add customization options
 		frame.setVisible(true);
