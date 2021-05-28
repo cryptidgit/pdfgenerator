@@ -11,6 +11,7 @@ public class Window implements ActionListener {
 	JMenuItem newfile;
 	JFrame nofile, frame;
 	JLabel noselect;
+	JComboBox<Integer> fontSizes;
 	
 	Window(String title, int width, int length) {
 		nofile = new JFrame(title); // Default screen on opening
@@ -44,7 +45,7 @@ public class Window implements ActionListener {
 		nofile.setVisible(true);
 		
 		// Create font size dropdown menu
-		JComboBox<Integer> fontSizes = new JComboBox<Integer>();
+		fontSizes = new JComboBox<Integer>();
 		
 		for(int i = 4; i < 96; i += 2) {
 			fontSizes.addItem(i);
