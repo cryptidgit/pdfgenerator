@@ -1,34 +1,24 @@
 package mypack;
 
-/*
- * PDF Generator Application
- * Generates PDFs from .txt files 
- * 
- */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import com.itextpdf.*;
-import java.util.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
-class PDFGen {
-	
-	public static void main(String[] args) {
-		Window win = new Window("PDF Generator", 500, 500);
-	}
-	
-	
-	// Generate Application Window
-	/* private static void createWindow() {
-		JFrame nofile = new JFrame("PDF Generator"); // Default screen on opening
-		JFrame frame = new JFrame("PDF Generator");
+public class Window implements ActionListener {
+	Window(String title, int width, int length) {
+		JFrame nofile = new JFrame(title); // Default screen on opening
+		JFrame frame = new JFrame(title);
 		
 		// Set up window frame and behavior
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
+		frame.setSize(width, length);
 		nofile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		nofile.setSize(500, 500);
+		nofile.setSize(width, length);
 		
 		// Create menu bar and items
 		JMenuBar bar = new JMenuBar();
@@ -50,6 +40,12 @@ class PDFGen {
 		
 		// Make changes visible
 		nofile.setVisible(true);
-	} */
+	}
 	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
