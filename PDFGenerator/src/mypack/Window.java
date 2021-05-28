@@ -10,6 +10,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class Window implements ActionListener {
+	JMenuItem f1;
+	
 	Window(String title, int width, int length) {
 		JFrame nofile = new JFrame(title); // Default screen on opening
 		JFrame frame = new JFrame(title);
