@@ -7,10 +7,11 @@ import javax.swing.*;
 
 public class Window implements ActionListener {
 	JMenuItem newfile;
+	JFrame nofile, frame;
 	
 	Window(String title, int width, int length) {
-		JFrame nofile = new JFrame(title); // Default screen on opening
-		JFrame frame = new JFrame(title);
+		nofile = new JFrame(title); // Default screen on opening
+		frame = new JFrame(title); // Customization screen
 		
 		// Set up window frame and behavior
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
