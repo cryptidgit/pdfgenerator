@@ -46,6 +46,15 @@ public class Window implements ActionListener {
 		if(e.getSource() == newfile) {
 			JFileChooser filechoose = new JFileChooser();
 			filechoose.showOpenDialog(null);
+			
+			int filelength = filechoose.getSelectedFile().getName().length();
+			
+			if(!filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
+				JOptionPane.showMessageDialog(frame, "File must end in .txt", "Error", JOptionPane.ERROR_MESSAGE);
+			} else if(filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
+				nofile.setVisible(false);
+				frame.setVisible(true);
+			}
 		}
 	}
 
