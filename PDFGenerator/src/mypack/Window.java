@@ -13,6 +13,7 @@ public class Window implements ActionListener {
 	JFrame frame;
 	JLabel noselect;
 	JComboBox<Integer> fontSizes;
+	JPanel fontSizeBox;
 	
 	Window(String title, int width, int length) {
 		frame = new JFrame(title);  // Default screen on opening
@@ -41,7 +42,7 @@ public class Window implements ActionListener {
 		frame.setVisible(true);
 		
 		// Create font size dropdown menu
-		JPanel fontSizeBox = new JPanel(new FlowLayout());
+		fontSizeBox = new JPanel(new FlowLayout());
 		
 		JLabel fontSizeName = new JLabel("Font Size");
 		fontSizes = new JComboBox<Integer>();
