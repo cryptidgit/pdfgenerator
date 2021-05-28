@@ -9,19 +9,15 @@ public class Window implements ActionListener {
 	JMenuBar bar;
 	JMenu file;
 	JMenuItem newfile;
-	JFrame nofile, frame;
+	JFrame frame;
 	JLabel noselect;
 	JComboBox<Integer> fontSizes;
 	
 	Window(String title, int width, int length) {
-		nofile = new JFrame(title); // Default screen on opening
-		frame = new JFrame(title); // Customization screen
-		
+		frame = new JFrame(title);  // Default screen on opening
 		// Set up window frame and behavior
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, length);
-		nofile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		nofile.setSize(width, length);
 		
 		// Create menu bar and items
 		bar = new JMenuBar();
@@ -29,20 +25,19 @@ public class Window implements ActionListener {
 		
 		newfile = new JMenuItem("New File");
 		newfile.addActionListener(this);
-		file.add(newfile);
+		file.add(frame);
 		
 		bar.add(file);
-		//frame.setJMenuBar(f1);
-		nofile.setJMenuBar(bar);
+		frame.setJMenuBar(bar);
 		
 		// Create "No File Selected" text
 		noselect = new JLabel("No File Selected");
 		noselect.setHorizontalAlignment(JLabel.CENTER);
 		
-		nofile.add(noselect);
+		frame.add(noselect);
 		
 		// Make changes visible
-		nofile.setVisible(true);
+		frame.setVisible(true);
 		
 		// Create font size dropdown menu
 		fontSizes = new JComboBox<Integer>();
@@ -50,6 +45,8 @@ public class Window implements ActionListener {
 		for(int i = 4; i < 96; i += 2) {
 			fontSizes.addItem(i);
 		}
+		
+		
 	}
 	
 	@Override
