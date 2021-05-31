@@ -14,7 +14,7 @@ public class Window implements ActionListener {
 	JLabel noselect;
 	JComboBox<Integer> fontSizes;
 	JComboBox<String> fontTypes;
-	JPanel fontSizeBox, fontTypeBox;
+	JPanel fontBox;
 	
 	String fileName, windowTitle;
 	
@@ -46,7 +46,7 @@ public class Window implements ActionListener {
 		frame.setVisible(true);
 		
 		// Create font size dropdown menu
-		fontSizeBox = new JPanel(new FlowLayout());
+		fontBox = new JPanel(new FlowLayout());
 		
 		JLabel fontSizeName = new JLabel("Font Size");
 		fontSizes = new JComboBox<Integer>();
@@ -57,12 +57,10 @@ public class Window implements ActionListener {
 			fontSizes.addItem(i);
 		}
 		
-		fontSizeBox.add(fontSizeName);
-		fontSizeBox.add(fontSizes);		
+		fontBox.add(fontSizeName);
+		fontBox.add(fontSizes);		
 		
-		// Create font types dropdown menu
-		fontTypeBox = new JPanel(new FlowLayout());
-		
+		// Create font types dropdown menu		
 		JLabel fontTypeName = new JLabel("Font");
 		fontTypes = new JComboBox<String>();
 		fontTypes.addActionListener(this);
@@ -73,8 +71,8 @@ public class Window implements ActionListener {
 		fontTypes.addItem("Times New Roman");
 		fontTypes.addItem("Zapf Dingbats");
 		
-		fontSizeBox.add(fontTypeName);
-		fontSizeBox.add(fontTypes);
+		fontBox.add(fontTypeName);
+		fontBox.add(fontTypes);
 	}
 	
 	@Override
@@ -117,7 +115,7 @@ public class Window implements ActionListener {
 		// Remove no file selected message
 		noselect.setVisible(false);
 		
-		frame.add(fontSizeBox);
+		frame.add(fontBox);
 	
 		// Add customization options
 		frame.setVisible(true);
