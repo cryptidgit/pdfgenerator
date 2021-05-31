@@ -5,18 +5,23 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 
 import javax.swing.*;
+import javax.swing.colorchooser.*;
 
 public class Window implements ActionListener {
 	JMenuBar bar;
 	JMenu file;
 	JMenuItem newfile;
 	JFrame frame;
-	JLabel noselect;
+	JLabel noselect, colorPreview;
 	JComboBox<Integer> fontSizes;
 	JComboBox<String> fontTypes;
+	JButton colorChooser;
 	JPanel fontBox;
+	JColorChooser chooser;
 	
 	String fileName, windowTitle;
+	Color fontColor;
+	
 	
 	Window(String title, int width, int length) {
 		windowTitle = title;
@@ -73,6 +78,14 @@ public class Window implements ActionListener {
 		
 		fontBox.add(fontTypeName);
 		fontBox.add(fontTypes);
+		
+		// Font Color Picker
+		colorChooser = new JButton("Choose Font Color");
+		colorChooser.addActionListener(this);
+		colorPreview = new JLabel("Font Color Preview");
+		
+		fontBox.add(colorChooser);
+		fontBox.add(colorPreview);
 	}
 	
 	@Override
@@ -97,17 +110,37 @@ public class Window implements ActionListener {
 		else if(e.getSource() == fontSizes) {
 			Object val = fontSizes.getSelectedItem();
 			
+			// Default font size is 4 pt
 			if(!(val instanceof Integer)) {
 				fontSizes.setSelectedItem(4);
 			} else {
 				int i = (Integer) val;
 				
+				// Range of font size 1 to 400 pt
 				if(i < 1) {
 					fontSizes.setSelectedItem(1);
 				} else if(i > 400) {
 					fontSizes.setSelectedItem(400);
 				}
 			}
+		}
+		
+		else if(e.getSource() == colorChooser) {
+			// Pull up color chooser
+			chooser = new JColorChooser();
+			
+			AbstractColorChooserPanel[] panels = chooser.getChooserPanels();
+			
+			// Pull up RGB Color Chooser
+			for(AbstractColorChooserPanel panel : panels) {
+				System.out.println(panel.getDisplayName());
+			    if (panel.getDisplayName().equals("RGB"))
+			        JOptionPane.showMessageDialog(null, panel);
+			}
+			
+			// Set font color and change color of preview text
+			Color color = chooser.getColor();
+			colorPreview.setForeground(new Color(color.getRed(), color.getGreen(), color.getBlue()));
 		}
 	}
 	
