@@ -15,8 +15,11 @@ public class Window implements ActionListener {
 	JComboBox<Integer> fontSizes;
 	JPanel fontSizeBox;
 	
+	String fileName, windowTitle;
+	
 	Window(String title, int width, int length) {
-		frame = new JFrame(title);  // Default screen on opening
+		windowTitle = title;
+		frame = new JFrame(windowTitle);  // Default screen on opening
 		// Set up window frame and behavior
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, length);
@@ -55,6 +58,7 @@ public class Window implements ActionListener {
 		
 		fontSizeBox.add(fontSizeName);
 		fontSizeBox.add(fontSizes);		
+		
 	}
 	
 	@Override
@@ -65,9 +69,13 @@ public class Window implements ActionListener {
 			
 			int filelength = filechoose.getSelectedFile().getName().length();
 			
+			// Only allow .txt files
 			if(!filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
 				JOptionPane.showMessageDialog(frame, "File must end in .txt", "Error", JOptionPane.ERROR_MESSAGE);
 			} else if(filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
+				// Get name of PDF file
+				fileName = JOptionPane.showInputDialog("Enter name of PDF file");
+				frame.setTitle(windowTitle + "- " + fileName + ".pdf");
 				showOptions();
 			}
 		}
