@@ -51,12 +51,7 @@ public class Window implements ActionListener {
 		addFontTypes();
 		
 		// Font Color Picker
-		colorChooser = new JButton("Choose Font Color");
-		colorChooser.addActionListener(this);
-		colorPreview = new JLabel("Font Color Preview");
-		
-		fontBox.add(colorChooser);
-		fontBox.add(colorPreview);
+		addColorPicker();
 	}
 	
 	@Override
@@ -129,6 +124,15 @@ public class Window implements ActionListener {
 		
 		fontBox.add(fontSizeName);
 		fontBox.add(fontSizes);		
+	}
+	
+	private void addColorPicker() {
+		colorChooser = new JButton("Choose Font Color");
+		colorChooser.addActionListener(this);
+		colorPreview = new JLabel("Font Color Preview");
+		
+		fontBox.add(colorChooser);
+		fontBox.add(colorPreview);
 	}
 	
 	private void addFontTypes() {
