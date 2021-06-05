@@ -17,7 +17,7 @@ public class Window implements ActionListener {
 	
 	private JComboBox<Integer> fontSizes;
 	private JComboBox<String> fontTypes;
-	private JButton colorChooser;
+	private JButton colorChooser, generateFile;
 	private JPanel fontBox;
 	private JColorChooser chooser;
 	
@@ -54,6 +54,9 @@ public class Window implements ActionListener {
 		
 		// Font Color Picker
 		addColorPicker();
+		
+		// Add Generate File Button
+		createGenerate();
 	}
 	
 	@Override
@@ -161,8 +164,6 @@ public class Window implements ActionListener {
 		fontBox.add(fontTypes);
 	}
 	
-	
-	
 	private void createMenu() {
 		bar = new JMenuBar();
 		file = new JMenu("File");
@@ -179,12 +180,19 @@ public class Window implements ActionListener {
 		frame.setJMenuBar(bar);
 	}
 	
+	private void createGenerate() {
+		generateFile = new JButton("Generate");
+		generateFile.setBounds(100, 100, 200, 200);
+		
+		fontBox.add(generateFile);
+	}
+	
 	private void showOptions() {
 		// Remove no file selected message
 		noselect.setVisible(false);
 		
 		frame.add(fontBox);
-	
+		
 		// Add customization options
 		frame.setVisible(true);
 	}
