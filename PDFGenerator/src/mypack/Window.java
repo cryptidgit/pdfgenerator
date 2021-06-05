@@ -31,15 +31,7 @@ public class Window implements ActionListener {
 		frame.setSize(width, length);
 		
 		// Create menu bar and items
-		bar = new JMenuBar();
-		file = new JMenu("File");
-		
-		newfile = new JMenuItem("New File");
-		newfile.addActionListener(this);
-		file.add(newfile);
-		
-		bar.add(file);
-		frame.setJMenuBar(bar);
+		createMenu();
 		
 		// Create "No File Selected" text
 		noselect = new JLabel("No File Selected");
@@ -145,6 +137,17 @@ public class Window implements ActionListener {
 	}
 	
 	
+	private void createMenu() {
+		bar = new JMenuBar();
+		file = new JMenu("File");
+		
+		newfile = new JMenuItem("New File");
+		newfile.addActionListener(this);
+		file.add(newfile);
+		
+		bar.add(file);
+		frame.setJMenuBar(bar);
+	}
 	
 	private void showOptions() {
 		// Remove no file selected message
