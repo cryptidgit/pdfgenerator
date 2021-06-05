@@ -13,7 +13,7 @@ import java.util.*;
 class PDFGen {
 	
 	public static void main(String[] args) {
-		Window win = new Window("PDF Generator", 500, 500);
+		Window win = new Window("PDF Generator", 650, 150);
 	}
 	
 }
