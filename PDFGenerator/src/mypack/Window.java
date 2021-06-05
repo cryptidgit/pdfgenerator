@@ -75,6 +75,15 @@ public class Window implements ActionListener {
 			}
 		}
 		
+		else if(e.getSource() == renameFile) {
+			if(fileName.isEmpty()) {
+				JOptionPane.showMessageDialog(null, "No File Selected to Rename", "Error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				String newName = JOptionPane.showInputDialog("Enter new name of PDF file");
+				frame.setTitle(windowTitle + "- " + newName + ".pdf");
+			}
+		}
+		
 		else if(e.getSource() == fontSizes) {
 			Object val = fontSizes.getSelectedItem();
 			
