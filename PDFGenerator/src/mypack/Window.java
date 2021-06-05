@@ -32,6 +32,8 @@ public class Window implements ActionListener {
 		// Set up window frame and behavior
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, length);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		
 		// Create menu bar and items
 		createMenu();
