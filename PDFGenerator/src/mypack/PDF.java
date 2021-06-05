@@ -1,5 +1,8 @@
 package mypack;
 
-public class PDF {
+import com.itextpdf.*;
 
+public class PDF {
+	private String name, dest;
+	
 }
