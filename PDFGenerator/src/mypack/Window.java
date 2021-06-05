@@ -144,7 +144,9 @@ public class Window implements ActionListener {
 		}
 	}
 	
-	public void showOptions() {
+	
+	
+	private void showOptions() {
 		// Remove no file selected message
 		noselect.setVisible(false);
 		
