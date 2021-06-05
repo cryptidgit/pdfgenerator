@@ -13,7 +13,7 @@ public class Window implements ActionListener {
 	JMenuItem newfile;
 	
 	JFrame frame;
-	JLabel noselect, colorPreview, fontTypeName;
+	JLabel noselect, colorPreview, fontTypeName, fontSizeName;
 	
 	JComboBox<Integer> fontSizes;
 	JComboBox<String> fontTypes;
@@ -47,7 +47,7 @@ public class Window implements ActionListener {
 		// Create font size dropdown menu
 		fontBox = new JPanel(new FlowLayout());
 		
-		JLabel fontSizeName = new JLabel("Font Size");
+		fontSizeName = new JLabel("Font Size");
 		fontSizes = new JComboBox<Integer>();
 		fontSizes.setEditable(true);
 		fontSizes.addActionListener(this);
