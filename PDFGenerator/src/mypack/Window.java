@@ -105,8 +105,8 @@ public class Window implements ActionListener {
 			}
 			
 			// Set font color and change color of preview text
-			Color color = chooser.getColor();
-			colorPreview.setForeground(new Color(color.getRed(), color.getGreen(), color.getBlue()));
+			fontColor = chooser.getColor();
+			colorPreview.setForeground(new Color(fontColor.getRed(), fontColor.getGreen(), fontColor.getBlue()));
 		}
 	}
 	
