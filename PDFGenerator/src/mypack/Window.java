@@ -48,18 +48,7 @@ public class Window implements ActionListener {
 		addFontSize();
 		
 		// Create font types dropdown menu		
-		fontTypeName = new JLabel("Font");
-		fontTypes = new JComboBox<String>();
-		fontTypes.addActionListener(this);
-		
-		fontTypes.addItem("Courier");
-		fontTypes.addItem("Helvetica");
-		fontTypes.addItem("Symbol");
-		fontTypes.addItem("Times New Roman");
-		fontTypes.addItem("Zapf Dingbats");
-		
-		fontBox.add(fontTypeName);
-		fontBox.add(fontTypes);
+		addFontTypes();
 		
 		// Font Color Picker
 		colorChooser = new JButton("Choose Font Color");
@@ -140,6 +129,21 @@ public class Window implements ActionListener {
 		
 		fontBox.add(fontSizeName);
 		fontBox.add(fontSizes);		
+	}
+	
+	private void addFontTypes() {
+		fontTypeName = new JLabel("Font");
+		fontTypes = new JComboBox<String>();
+		fontTypes.addActionListener(this);
+		
+		fontTypes.addItem("Courier");
+		fontTypes.addItem("Helvetica");
+		fontTypes.addItem("Symbol");
+		fontTypes.addItem("Times New Roman");
+		fontTypes.addItem("Zapf Dingbats");
+		
+		fontBox.add(fontTypeName);
+		fontBox.add(fontTypes);
 	}
 	
 	
