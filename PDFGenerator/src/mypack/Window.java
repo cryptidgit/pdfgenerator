@@ -45,19 +45,7 @@ public class Window implements ActionListener {
 		frame.setVisible(true);
 		
 		// Create font size dropdown menu
-		fontBox = new JPanel(new FlowLayout());
-		
-		fontSizeName = new JLabel("Font Size");
-		fontSizes = new JComboBox<Integer>();
-		fontSizes.setEditable(true);
-		fontSizes.addActionListener(this);
-		
-		for(int i = 2; i <= 96; i += 2) {
-			fontSizes.addItem(i);
-		}
-		
-		fontBox.add(fontSizeName);
-		fontBox.add(fontSizes);		
+		addFontSize();
 		
 		// Create font types dropdown menu		
 		fontTypeName = new JLabel("Font");
@@ -137,6 +125,23 @@ public class Window implements ActionListener {
 			colorPreview.setForeground(new Color(color.getRed(), color.getGreen(), color.getBlue()));
 		}
 	}
+	
+	private void addFontSize() {
+		fontBox = new JPanel(new FlowLayout());
+		
+		fontSizeName = new JLabel("Font Size");
+		fontSizes = new JComboBox<Integer>();
+		fontSizes.setEditable(true);
+		fontSizes.addActionListener(this);
+		
+		for(int i = 2; i <= 96; i += 2) {
+			fontSizes.addItem(i);
+		}
+		
+		fontBox.add(fontSizeName);
+		fontBox.add(fontSizes);		
+	}
+	
 	
 	
 	private void createMenu() {
