@@ -8,21 +8,21 @@ import javax.swing.*;
 import javax.swing.colorchooser.*;
 
 public class Window implements ActionListener {
-	JMenuBar bar;
-	JMenu file;
-	JMenuItem newfile;
+	private JMenuBar bar;
+	private JMenu file;
+	private JMenuItem newfile;
 	
-	JFrame frame;
-	JLabel noselect, colorPreview, fontTypeName, fontSizeName;
+	private JFrame frame;
+	private JLabel noselect, colorPreview, fontTypeName, fontSizeName;
 	
-	JComboBox<Integer> fontSizes;
-	JComboBox<String> fontTypes;
-	JButton colorChooser;
-	JPanel fontBox;
-	JColorChooser chooser;
+	private JComboBox<Integer> fontSizes;
+	private JComboBox<String> fontTypes;
+	private JButton colorChooser;
+	private JPanel fontBox;
+	private JColorChooser chooser;
 	
-	String fileName, windowTitle;
-	Color fontColor;
+	private String fileName, windowTitle;
+	private Color fontColor;
 	
 	
 	Window(String title, int width, int length) {
