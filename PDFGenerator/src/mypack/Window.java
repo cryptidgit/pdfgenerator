@@ -10,7 +10,7 @@ import javax.swing.colorchooser.*;
 public class Window implements ActionListener {
 	private JMenuBar bar;
 	private JMenu file;
-	private JMenuItem newfile;
+	private JMenuItem newfile, renameFile;
 	
 	private JFrame frame;
 	private JLabel noselect, colorPreview, fontTypeName, fontSizeName;
@@ -161,6 +161,10 @@ public class Window implements ActionListener {
 		newfile = new JMenuItem("New File");
 		newfile.addActionListener(this);
 		file.add(newfile);
+		
+		renameFile = new JMenuItem("Rename File");
+		renameFile.addActionListener(this);
+		file.add(renameFile);
 		
 		bar.add(file);
 		frame.setJMenuBar(bar);
