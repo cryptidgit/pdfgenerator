@@ -28,6 +28,7 @@ public class Window implements ActionListener {
 	Window(String title, int width, int length) {
 		windowTitle = title;
 		frame = new JFrame(windowTitle);  // Default screen on opening
+		
 		// Set up window frame and behavior
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, length);
@@ -35,9 +36,10 @@ public class Window implements ActionListener {
 		// Create menu bar and items
 		createMenu();
 		
-		// Create "No File Selected" text
+		// Create "No File Selected" text and initialize fileName
 		noselect = new JLabel("No File Selected");
 		noselect.setHorizontalAlignment(JLabel.CENTER);
+		fileName = "";
 		
 		frame.add(noselect);
 		
