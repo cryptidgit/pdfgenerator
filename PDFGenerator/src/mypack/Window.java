@@ -11,8 +11,10 @@ public class Window implements ActionListener {
 	JMenuBar bar;
 	JMenu file;
 	JMenuItem newfile;
+	
 	JFrame frame;
-	JLabel noselect, colorPreview;
+	JLabel noselect, colorPreview, fontTypeName;
+	
 	JComboBox<Integer> fontSizes;
 	JComboBox<String> fontTypes;
 	JButton colorChooser;
@@ -58,7 +60,7 @@ public class Window implements ActionListener {
 		fontBox.add(fontSizes);		
 		
 		// Create font types dropdown menu		
-		JLabel fontTypeName = new JLabel("Font");
+		fontTypeName = new JLabel("Font");
 		fontTypes = new JComboBox<String>();
 		fontTypes.addActionListener(this);
 		
