@@ -70,7 +70,7 @@ public class Window implements ActionListener {
 			} else if(filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
 				// Get name of PDF file
 				fileName = JOptionPane.showInputDialog("Enter name of PDF file");
-				frame.setTitle(windowTitle + "- " + fileName + ".pdf");
+				renameFile(fileName);
 				showOptions();
 			}
 		}
@@ -79,8 +79,8 @@ public class Window implements ActionListener {
 			if(fileName.isEmpty()) {
 				JOptionPane.showMessageDialog(null, "No File Selected to Rename", "Error", JOptionPane.ERROR_MESSAGE);
 			} else {
-				String newName = JOptionPane.showInputDialog("Enter new name of PDF file");
-				frame.setTitle(windowTitle + "- " + newName + ".pdf");
+				fileName = JOptionPane.showInputDialog("Enter new name of PDF file");
+				renameFile(fileName);
 			}
 		}
 		
@@ -187,6 +187,10 @@ public class Window implements ActionListener {
 	
 		// Add customization options
 		frame.setVisible(true);
+	}
+	
+	private void renameFile(String newName) {
+		frame.setTitle(windowTitle + "- " + newName + ".pdf");
 	}
 
 }
