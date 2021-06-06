@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class PDF {
 	private String name, dest, textFile;
+	private File file;
 	
 	private Document doc;
 	private PdfWriter writer;
@@ -47,6 +48,7 @@ public class PDF {
 	
 	private void setTextFile(String txtFile) {
 		textFile = txtFile;
+		file = new File(txtFile);
 	}
 	
 	// Getter methods
