@@ -7,10 +7,14 @@ public class PDF {
 	
 	private void setName(String name) {
 		this.name = name + ".pdf";
+		
+		if(!dest.isEmpty()) {
+			dest = dest + "/" + name;
+		}
 	}
 	
 	private void setDest(String dest) {
-		if(!name.isEmpty()) {
+		if(name.isEmpty()) {
 			this.dest = dest;
 		} else {
 			this.dest = dest + "/" + name;
