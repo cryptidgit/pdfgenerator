@@ -21,7 +21,7 @@ public class Window implements ActionListener {
 	private JPanel fontBox;
 	private JColorChooser chooser;
 	
-	private String fileName, windowTitle;
+	private String fileName, windowTitle, textFileName;
 	private Color fontColor;
 	
 	
@@ -74,6 +74,7 @@ public class Window implements ActionListener {
 				JOptionPane.showMessageDialog(frame, "File must end in .txt", "Error", JOptionPane.ERROR_MESSAGE);
 			} else if(filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
 				// Get name of PDF file
+				textFileName = filechoose.getSelectedFile().getName();
 				fileName = JOptionPane.showInputDialog("Enter name of PDF file");
 				renameFile(fileName);
 				showOptions();
