@@ -25,7 +25,6 @@ public class PDF {
 		writer = new PdfWriter(dest);
 		pdfDoc = new PdfDocument(writer);
 		doc = new Document(pdfDoc);
-
 	}
 	
 	private void setName(String name) {
@@ -36,12 +35,20 @@ public class PDF {
 		}
 	}
 	
+	private String getName() {
+		return name;
+	}
+	
 	private void setDest(String dest) {
 		if(name.isEmpty()) {
 			this.dest = dest;
 		} else {
 			this.dest = dest + "/" + name;
 		}
+	}
+	
+	private String getDest() {
+		return dest;
 	}
 	
 }
