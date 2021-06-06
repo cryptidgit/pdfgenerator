@@ -27,6 +27,7 @@ public class PDF {
 		doc = new Document(pdfDoc);
 	}
 	
+	// Setter methods
 	private void setName(String name) {
 		this.name = name + ".pdf";
 		
@@ -35,16 +36,17 @@ public class PDF {
 		}
 	}
 	
-	private String getName() {
-		return name;
-	}
-	
 	private void setDest(String dest) {
 		if(name.isEmpty()) {
 			this.dest = dest;
 		} else {
 			this.dest = dest + "/" + name;
 		}
+	}
+	
+	// Getter methods
+	private String getName() {
+		return name;
 	}
 	
 	private String getDest() {
