@@ -18,9 +18,10 @@ public class PDF {
 	private PdfDocument pdfDoc;
 	
 	
-	PDF(String name, String dest) throws FileNotFoundException {
+	PDF(String name, String dest, String txtFile) throws FileNotFoundException {
 		setName(name);
 		setDest(dest);
+		setTextFile(txtFile);
 		
 		writer = new PdfWriter(dest);
 		pdfDoc = new PdfDocument(writer);
