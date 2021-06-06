@@ -74,7 +74,7 @@ public class Window implements ActionListener {
 				JOptionPane.showMessageDialog(frame, "File must end in .txt", "Error", JOptionPane.ERROR_MESSAGE);
 			} else if(filechoose.getSelectedFile().getName().substring(filelength - 3).equals("txt")) {
 				// Get name of PDF file
-				textFileName = filechoose.getSelectedFile().getName();
+				textFileName = filechoose.getSelectedFile().getAbsolutePath();
 				fileName = JOptionPane.showInputDialog("Enter name of PDF file");
 				renameFile(fileName);
 				showOptions();
