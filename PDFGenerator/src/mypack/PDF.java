@@ -44,6 +44,10 @@ public class PDF {
 		}
 	}
 	
+	private void setTextFile(String txtFile) {
+		textFile = txtFile;
+	}
+	
 	// Getter methods
 	private String getName() {
 		return name;
@@ -51,6 +55,10 @@ public class PDF {
 	
 	private String getDest() {
 		return dest;
+	}
+	
+	private String getTextFile(String txtFile) {
+		return textFile;
 	}
 	
 }
