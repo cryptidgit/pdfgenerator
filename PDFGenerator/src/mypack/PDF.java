@@ -9,4 +9,12 @@ public class PDF {
 		this.name = name + ".pdf";
 	}
 	
+	private void setDest(String dest) {
+		if(!name.isEmpty()) {
+			this.dest = dest;
+		} else {
+			this.dest = dest + "/" + name;
+		}
+	}
+	
 }
