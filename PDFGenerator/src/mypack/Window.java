@@ -2,6 +2,8 @@ package mypack;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.awt.*;
 
 import javax.swing.*;
@@ -23,6 +25,8 @@ public class Window implements ActionListener {
 	
 	private String fileName, windowTitle, textFileName;
 	private Color fontColor;
+	
+	private PDF pdf;
 	
 	
 	Window(String title, int width, int length) {
@@ -125,6 +129,24 @@ public class Window implements ActionListener {
 			fontColor = chooser.getColor();
 			colorPreview.setForeground(new Color(fontColor.getRed(), fontColor.getGreen(), fontColor.getBlue()));
 		}
+		
+		else if(e.getSource() == generateFile) {
+			JFileChooser chooser = new JFileChooser();
+			chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			chooser.setSelectedFile(new File(fileName + ".pdf"));
+			
+			int option = chooser.showSaveDialog(frame);
+			
+			if(option == JFileChooser.APPROVE_OPTION) {
+				try {					pdf = new PDF(chooser.getSelectedFile().getAbsolutePath(), textFileName);
+					pdf.makePDF();
+				} catch (FileNotFoundException e1) {
+					JOptionPane.showMessageDialog(null, "File Not Found", "Error", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+				
+			}
+		}
 	}
 	
 	private void addFontSize() {
@@ -186,6 +208,7 @@ public class Window implements ActionListener {
 	private void createGenerate() {
 		generateFile = new JButton("Generate");
 		generateFile.setBounds(100, 100, 200, 200);
+		generateFile.addActionListener(this);
 		
 		fontBox.add(generateFile);
 	}

@@ -30,16 +30,13 @@ public class PDF {
 	}
 	
 	public void makePDF() throws FileNotFoundException {
-		/*in = new Scanner(file);
+		in = new Scanner(file);
 		
 		while(in.hasNextLine()) {
 			String data = in.nextLine();
 			
 			doc.add(new Paragraph(data));
-			doc.close();
-		}*/
-		
-		doc.add(new Paragraph("hello world"));
+		}		
 		doc.close();
 	}
 	
