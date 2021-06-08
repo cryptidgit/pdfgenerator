@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class PDF {
-	private String name, dest, textFile;
+	private String dest, textFile;
 	private File file;
 	private Scanner in;
 	
@@ -20,8 +20,7 @@ public class PDF {
 	private PdfWriter writer;
 	private PdfDocument pdfDoc;
 	
-	PDF(String name, String dest, String txtFile) throws FileNotFoundException {
-		setName(name);
+	PDF(String dest, String txtFile) throws FileNotFoundException {
 		setDest(dest);
 		setTextFile(txtFile);
 		
@@ -31,31 +30,23 @@ public class PDF {
 	}
 	
 	public void makePDF() throws FileNotFoundException {
-		in = new Scanner(file);
+		/*in = new Scanner(file);
 		
 		while(in.hasNextLine()) {
 			String data = in.nextLine();
 			
 			doc.add(new Paragraph(data));
 			doc.close();
-		}
+		}*/
+		
+		doc.add(new Paragraph("hello world"));
+		doc.close();
 	}
 	
 	// Setter methods
-	private void setName(String name) {
-		this.name = name + ".pdf";
-		
-		if(!dest.isEmpty()) {
-			dest = dest + "/" + name;
-		}
-	}
 	
 	private void setDest(String dest) {
-		if(name.isEmpty()) {
-			this.dest = dest;
-		} else {
-			this.dest = dest + "/" + name;
-		}
+		this.dest = dest;
 	}
 	
 	private void setTextFile(String txtFile) {
@@ -64,9 +55,6 @@ public class PDF {
 	}
 	
 	// Getter methods
-	private String getName() {
-		return name;
-	}
 	
 	private String getDest() {
 		return dest;
