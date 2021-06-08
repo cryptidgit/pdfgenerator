@@ -138,7 +138,8 @@ public class Window implements ActionListener {
 			int option = chooser.showSaveDialog(frame);
 			
 			if(option == JFileChooser.APPROVE_OPTION) {
-				try {					pdf = new PDF(chooser.getSelectedFile().getAbsolutePath(), textFileName);
+				try {
+					pdf = new PDF(chooser.getSelectedFile().getAbsolutePath(), textFileName);
 					pdf.makePDF();
 				} catch (FileNotFoundException e1) {
 					JOptionPane.showMessageDialog(null, "File Not Found", "Error", JOptionPane.ERROR_MESSAGE);
