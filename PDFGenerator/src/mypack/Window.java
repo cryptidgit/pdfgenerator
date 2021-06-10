@@ -153,8 +153,11 @@ public class Window implements ActionListener {
 					// Set chosen options for PDF 
 					pdf.setFont(String.valueOf(fontTypes.getSelectedItem()));
 					pdf.setFontColor(fontColor.getRed(), fontColor.getGreen(), fontColor.getBlue());
-					if(fontSizes.getSelectedIndex() != 0) {
+					
+					try {
 						pdf.setFontSize((Integer)fontSizes.getSelectedItem());
+					} catch (NullPointerException npe) {
+						pdf.setFontSize(12);
 					}
 					
 					// Create PDF and save to user's computer
@@ -194,6 +197,7 @@ public class Window implements ActionListener {
 		
 		fontBox.add(colorChooser);
 		fontBox.add(colorPreview);
+		fontColor = Color.BLACK;
 	}
 	
 	private void addFontTypes() {
