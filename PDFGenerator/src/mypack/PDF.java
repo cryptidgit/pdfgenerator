@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class PDF {
 	private String dest, textFile;
+	private double fontSize;
 	private File file;
 	private Scanner in;
 	
@@ -61,4 +62,7 @@ public class PDF {
 		return textFile;
 	}
 	
+	public void setFontSize(double size) {
+		fontSize = size;
+	}
 }
