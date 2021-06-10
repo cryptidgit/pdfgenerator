@@ -3,6 +3,8 @@ package mypack;
 import java.io.FileNotFoundException;
 
 import com.itextpdf.*;
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.pdf.*;
 import com.itextpdf.layout.*;
 import com.itextpdf.layout.element.Paragraph;
@@ -14,6 +16,7 @@ import java.util.Scanner;
 public class PDF {
 	private String dest, textFile;
 	private double fontSize;
+	private Color fontColor;
 	private File file;
 	private Scanner in;
 	
@@ -32,6 +35,7 @@ public class PDF {
 	
 	public void makePDF() throws FileNotFoundException {
 		in = new Scanner(file);
+		
 		
 		while(in.hasNextLine()) {
 			String data = in.nextLine();
@@ -52,6 +56,14 @@ public class PDF {
 		file = new File(txtFile);
 	}
 	
+	public void setFontSize(double size) {
+		fontSize = size;
+	}
+	
+	public void setFontColor(int r, int g, int b) {
+		fontColor = new DeviceRgb(r, g, b);
+	}
+	
 	// Getter methods
 	
 	private String getDest() {
@@ -62,7 +74,5 @@ public class PDF {
 		return textFile;
 	}
 	
-	public void setFontSize(double size) {
-		fontSize = size;
-	}
+	
 }
