@@ -34,7 +34,12 @@ public class PDF {
 		setDest(dest);
 		setTextFile(txtFile);
 		
-		writer = new PdfWriter(dest);
+		if(!dest.contains(".pdf")) {
+			writer = new PdfWriter(dest + ".pdf");
+		} else {
+			writer = new PdfWriter(dest);
+		}
+		
 		pdfDoc = new PdfDocument(writer);
 		doc = new Document(pdfDoc);
 	}
