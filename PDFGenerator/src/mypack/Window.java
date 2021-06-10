@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.awt.*;
 
 import javax.swing.*;
@@ -148,9 +149,20 @@ public class Window implements ActionListener {
 			if(option == JFileChooser.APPROVE_OPTION) {
 				try {
 					pdf = new PDF(chooser.getSelectedFile().getAbsolutePath(), textFileName);
+					
+					// Set chosen options for PDF 
+					pdf.setFont(String.valueOf(fontTypes.getSelectedItem()));
+					pdf.setFontColor(fontColor.getRed(), fontColor.getGreen(), fontColor.getBlue());
+					if(fontSizes.getSelectedIndex() != 0) {
+						pdf.setFontSize((Integer)fontSizes.getSelectedItem());
+					}
+					
+					// Create PDF and save to user's computer
 					pdf.makePDF();
 				} catch (FileNotFoundException e1) {
 					JOptionPane.showMessageDialog(null, "File Not Found", "Error", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 				
@@ -185,6 +197,7 @@ public class Window implements ActionListener {
 	}
 	
 	private void addFontTypes() {
+		// Create font types dropdown menu
 		fontTypeName = new JLabel("Font");
 		fontTypes = new JComboBox<String>();
 		fontTypes.addActionListener(this);
@@ -201,6 +214,7 @@ public class Window implements ActionListener {
 	}
 	
 	private void createMenu() {
+		// Create menu toolbar in app
 		bar = new JMenuBar();
 		file = new JMenu("File");
 		
@@ -217,6 +231,7 @@ public class Window implements ActionListener {
 	}
 	
 	private void createGenerate() {
+		// Button to generate PDF
 		generateFile = new JButton("Generate");
 		generateFile.setBounds(100, 100, 200, 200);
 		generateFile.addActionListener(this);
