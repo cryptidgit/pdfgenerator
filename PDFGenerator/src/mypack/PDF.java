@@ -20,8 +20,8 @@ import java.util.Scanner;
 
 public class PDF {
 	private String dest, textFile;
-	private double fontSize = 12.0;
-	private Color fontColor;
+	private float fontSize = 12.0f;
+	private Color fontColor = new DeviceRgb(0, 0, 0);
 	private File file;
 	private Scanner in;
 	
@@ -46,7 +46,7 @@ public class PDF {
 		while(in.hasNextLine()) {
 			String data = in.nextLine();
 			
-			doc.add(new Paragraph(data));
+			doc.add(new Paragraph(data).setFontSize(fontSize).setFontColor(fontColor).setFont(docFont));
 		}		
 		doc.close();
 	}
@@ -62,8 +62,8 @@ public class PDF {
 		file = new File(txtFile);
 	}
 	
-	public void setFontSize(double size) {
-		fontSize = size;
+	public void setFontSize(float size) {
+		fontSize = (float)size;
 	}
 	
 	public void setFontColor(int r, int g, int b) {
