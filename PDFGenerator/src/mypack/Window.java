@@ -189,6 +189,7 @@ public class Window implements ActionListener {
 		fontTypes = new JComboBox<String>();
 		fontTypes.addActionListener(this);
 		
+		fontTypes.addItem("");
 		fontTypes.addItem("Courier");
 		fontTypes.addItem("Helvetica");
 		fontTypes.addItem("Symbol");
