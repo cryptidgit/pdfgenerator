@@ -1,10 +1,15 @@
 package mypack;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import com.itextpdf.*;
+import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.*;
 import com.itextpdf.layout.*;
 import com.itextpdf.layout.element.Paragraph;
@@ -15,7 +20,7 @@ import java.util.Scanner;
 
 public class PDF {
 	private String dest, textFile;
-	private double fontSize;
+	private double fontSize = 12.0;
 	private Color fontColor;
 	private File file;
 	private Scanner in;
@@ -23,6 +28,7 @@ public class PDF {
 	private Document doc;
 	private PdfWriter writer;
 	private PdfDocument pdfDoc;
+	private PdfFont times, helvetica, courier, symbol, zapf, docFont;
 	
 	PDF(String dest, String txtFile) throws FileNotFoundException {
 		setDest(dest);
@@ -62,6 +68,36 @@ public class PDF {
 	
 	public void setFontColor(int r, int g, int b) {
 		fontColor = new DeviceRgb(r, g, b);
+	}
+	
+	public void setFont(String font) throws IOException {
+		times = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
+		helvetica = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+		courier = PdfFontFactory.createFont(StandardFonts.COURIER);
+		symbol = PdfFontFactory.createFont(StandardFonts.SYMBOL);
+		zapf = PdfFontFactory.createFont(StandardFonts.ZAPFDINGBATS);
+		
+		switch(font) {
+			case "Courier":
+				docFont = courier;
+				break;
+			case "Helvetica":
+				docFont = helvetica;
+				break;
+			case "Symbol":
+				docFont = symbol;
+				break;
+			case "Times New Roman":
+				docFont = times;
+				break;
+			case "Zapf Dingbats":
+				docFont = zapf;
+				break;
+			default:
+				docFont = helvetica;
+				break;
+		}
+		
 	}
 	
 	// Getter methods
