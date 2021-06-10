@@ -98,19 +98,27 @@ public class Window implements ActionListener {
 			Object val = fontSizes.getSelectedItem();
 			
 			// Default font size is 4 pt
-			if(!(val instanceof Integer)) {
-				fontSizes.setSelectedItem(4);
-			} else {
-				int i = (Integer) val;
-				
-				// Range of font size 1 to 400 pt
-				if(i < 1) {
-					fontSizes.setSelectedItem(1);
-				} else if(i > 400) {
-					fontSizes.setSelectedItem(400);
+			try {
+				if(!(val instanceof Integer) && val != null) {
+					fontSizes.setSelectedItem(4);
+				} 
+			
+				else {
+					int i = (Integer) val;
+					
+					// Range of font size 1 to 400 pt
+					if(i < 1) {
+						fontSizes.setSelectedItem(1);
+					} else if(i > 400) {
+						fontSizes.setSelectedItem(400);
+					}
 				}
+			} catch (NullPointerException npe) {
+				
 			}
 		}
+			
+		
 		
 		else if(e.getSource() == colorChooser) {
 			// Pull up color chooser
@@ -157,6 +165,7 @@ public class Window implements ActionListener {
 		fontSizes = new JComboBox<Integer>();
 		fontSizes.setEditable(true);
 		fontSizes.addActionListener(this);
+		fontSizes.addItem(null);
 		
 		for(int i = 2; i <= 96; i += 2) {
 			fontSizes.addItem(i);
