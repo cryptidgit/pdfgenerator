@@ -3,8 +3,7 @@ package mypack;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import com.itextpdf.*;
-import com.itextpdf.io.font.FontConstants;
+
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
@@ -15,7 +14,6 @@ import com.itextpdf.layout.*;
 import com.itextpdf.layout.element.Paragraph;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class PDF {
@@ -104,16 +102,5 @@ public class PDF {
 		}
 		
 	}
-	
-	// Getter methods
-	
-	private String getDest() {
-		return dest;
-	}
-	
-	private String getTextFile(String txtFile) {
-		return textFile;
-	}
-	
 	
 }
